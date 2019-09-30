@@ -34,7 +34,7 @@ public class MovieService {
 	
 	@Value("${service.swapi.people}")
 	private String swapiPeople;
-	
+		
 	private List<String> characters = null;
 	
 	/*****************************************************************

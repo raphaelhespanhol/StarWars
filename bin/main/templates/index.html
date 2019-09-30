@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Simple Star Wars Site</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-theme.css}">
+  </head>
+
+  <body>
+    <div class="container">
+      <section>
+        <h1><span th:text="${appName} + ' Movies'"></span></h1>
+        <p><span th:text="'Developed by ' + ${appAbout}"></span></p>
+        <p><span th:text="'Tool version: ' + ${appVersion}"></span></p>
+        <p>Find out all official characters by each Star Wars movie.</p>
+        <form class="navbar-form navbar-left" th:action="@{/api/jdtest}">
+		  <div class="form-group">
+		    <input th:name="film_id" type="text" class="form-control" placeholder="Inform the film id">
+		    <input th:name="character_id" type="text" class="form-control" placeholder="Inform the character id">
+		    <input  th:name="page" type="hidden" class="form-control" value="index">
+		  </div>
+		  <button type="submit" class="btn btn-default">Submit</button>
+		</form>
+      </section>
+      <br/>
+    </div>
+		<div class="container">
+			<ol>
+		    	<li th:each="character : ${characters}" th:text="${character}"></li>
+		    </ol>
+		</div>
+    <script th:src="@{/js/jquery-1.12.1.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+  </body>
+</html>
